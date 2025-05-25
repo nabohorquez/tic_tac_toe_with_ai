@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% block title %}Tic Tac Toe RL{% endblock %}
+{% block add_head %}
+
+{% endblock %}
+
+{% block content %}
+     <div class="container">
+        <h2>Modelo</h2>
+        <p>
+            El modelo de IA utilizado en este juego de Tic-Tac-Toe está basado en Q-learning, un algoritmo de aprendizaje por refuerzo. 
+            Q-learning permite a la IA aprender a tomar decisiones óptimas a través de la experiencia, actualizando una tabla Q que 
+            representa las recompensas esperadas para cada acción en cada estado del juego.
+        </p>
+
+        <h2 >Juego</h2>
+        <p>
+            El juego de Tic-Tac-Toe, también conocido como Tres en Raya, es un juego de mesa para dos jugadores. 
+            El objetivo es alinear tres de tus símbolos (X o O) en una fila, columna o diagonal en un tablero de 3x3. 
+            En esta implementación, el jugador humano juega contra una IA que utiliza el modelo de Q-learning para tomar sus decisiones.
+        </p>
+
+        <h2>Aplicación</h2>
+        <p>
+            La aplicación web está construida utilizando Flask, un microframework de Python. 
+            Flask permite crear aplicaciones web de manera sencilla y eficiente. 
+            La aplicación maneja las rutas para iniciar el juego, realizar movimientos y entrenar la IA.
+        </p>
+
+        <h3>Características de la Aplicación</h3>
+        <ul>
+            <li><strong>Inicio del Juego:</strong> La aplicación inicializa el tablero y establece el jugador actual.</li>
+            <li><strong>Movimientos:</strong> La aplicación maneja los movimientos del jugador humano y de la IA, actualizando el estado del juego.</li>
+            <li><strong>Entrenamiento de la IA:</strong> La aplicación permite entrenar la IA utilizando Q-learning, mejorando su desempeño con el tiempo.</li>
+        </ul>
+
+        <h3>Tecnologías Utilizadas</h3>
+        <ul>
+            <li><strong>Python:</strong> Lenguaje de programación utilizado para la lógica del juego y la IA.</li>
+            <li><strong>Flask:</strong> Framework utilizado para construir la aplicación web.</li>
+            <li><strong>HTML/CSS:</strong> Tecnologías utilizadas para la interfaz de usuario.</li>
+            <li><strong>JavaScript:</strong> Utilizado para manejar la interacción del usuario en el navegador.</li>
+        </ul>
+
+        <h3>Cómo Jugar</h3>
+        <p>
+            Para jugar, simplemente abre la aplicación web y sigue las instrucciones en pantalla. 
+            Haz clic en una celda del tablero para realizar tu movimiento. La IA responderá automáticamente con su movimiento. 
+            El juego termina cuando uno de los jugadores alinea tres de sus símbolos o cuando el tablero está lleno sin un ganador.
+        </p>
+
+        <div class="text-center">
+            <h3>Imagen del Juego</h3>
+            <img src="{{ url_for('static', filename='tic_tac_toe.png') }}" alt="Juego de Tic Tac Toe" width="300" height="300">
+        </div>
+    </div>
+{% endblock %}

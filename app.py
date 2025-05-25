@@ -26,7 +26,11 @@ def save_game(game):
     session['winner'] = game.winner
 
 @app.route('/')
-def index():
+def home():
+    return render_template('Descripcion.html')
+
+@app.route('/juego')
+def juego():
     return render_template('tic_tac_toe.html')
 
 @app.route('/reset', methods=['POST'])
