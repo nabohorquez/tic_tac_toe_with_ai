@@ -73,14 +73,14 @@ def train():
     train_q_learning()
     return jsonify({'status': 'ok'})
 
-def ia_best_action(game, Q):
-    import numpy as np
+def ia_best_action(game: TicTacToe, memory_ai):
     actions = [i*3+j for i, j in game.available_actions()]
     state = tuple(game.board.reshape(-1))
-    qs = [Q.get((state, a), 0) for a in actions]
+    # Selección de las mejores opciones
+    qs = [memory_ai.get((state, a), 0) for a in actions]
     max_q = max(qs)
     max_actions = [a for a, q in zip(actions, qs) if q == max_q]
-    return np.random.default_rng().choice(max_actions)
+    return np.random.default_rng(seed=42).choice(max_actions)
 
 if __name__ == '__main__':
     app.run(debug=True)

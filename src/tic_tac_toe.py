@@ -2,7 +2,7 @@ import numpy as np
 import gymnasium as gym
 from gymnasium import spaces
 
-class TicTacToe(gym.Env):  # Hereda de gym.Env
+class TicTacToe(gym.Env):
     metadata = {"render_modes": ["human"]}
 
     def __init__(self):
@@ -12,14 +12,14 @@ class TicTacToe(gym.Env):  # Hereda de gym.Env
         self.reset()
 
     def reset(self, seed=None, options=None):
-        self.board = np.zeros((3, 3), dtype=np.int8)  # Asegúrate de que sea un array de NumPy
+        self.board = np.zeros((3, 3), dtype=np.int8)
         self.current_player = 1
         self.done = False
         self.winner = None
         return self.board.copy(), {}
 
     def available_actions(self):
-        return list(zip(*np.where(self.board == 0)))
+        return list(zip(*np.nonzero(self.board == 0)))
 
     def check_game_status(self):
         for player in [1, -1]:
