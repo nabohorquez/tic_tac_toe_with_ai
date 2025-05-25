@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 from src.tic_tac_toe import TicTacToe
 import pickle
 
-episodes = 10000
+episodes = 1000
 alpha = 0.1
 gamma = 0.9
 epsilon = 0.1
