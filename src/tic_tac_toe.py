@@ -34,7 +34,7 @@ class TicTacToe(gym.Env):
 
     def step(self, action):
         if not isinstance(self.board, np.ndarray):
-            self.board = np.array(self.board, dtype=np.int8)  # Convierte a array si no lo es
+            self.board = np.array(self.board, dtype=np.int8)
 
         if action is None:
             return self.board.copy(), 0, True, {"winner": self.winner}
