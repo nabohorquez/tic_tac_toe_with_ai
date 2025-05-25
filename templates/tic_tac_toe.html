@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% block title %}Tic Tac Toe RL{% endblock %}
+{% block add_head %}
+    <style>
+        .cell {
+            width: 100px;
+            height: 100px;
+            font-size: 2em;
+            text-align: center;
+            vertical-align: middle;
+            cursor: pointer;
+        }
+        .disabled {
+            cursor: not-allowed;
+        }
+    </style>
+
+    <script src='{{ url_for("static", filename="js/tic_tac_toe.js") }}'></script>
+{% endblock %}
+
+{% block content %}
+    <div class="container py-5">
+        <h1 class="mb-4 text-center">Tic Tac Toe RL</h1>
+        <div class="text-center">
+            <table class="table table-bordered">
+                <tbody>
+                <tr>
+                    <td class="cell" data-row="0" data-col="0" onclick="makeMove(0, 0)"></td>
+                    <td class="cell" data-row="0" data-col="1" onclick="makeMove(0, 1)"></td>
+                    <td class="cell" data-row="0" data-col="2" onclick="makeMove(0, 2)"></td>
+                </tr>
+                <tr>
+                    <td class="cell" data-row="1" data-col="0" onclick="makeMove(1, 0)"></td>
+                    <td class="cell" data-row="1" data-col="1" onclick="makeMove(1, 1)"></td>
+                    <td class="cell" data-row="1" data-col="2" onclick="makeMove(1, 2)"></td>
+                </tr>
+                <tr>
+                    <td class="cell" data-row="2" data-col="0" onclick="makeMove(2, 0)"></td>
+                    <td class="cell" data-row="2" data-col="1" onclick="makeMove(2, 1)"></td>
+                    <td class="cell" data-row="2" data-col="2" onclick="makeMove(2, 2)"></td>
+                </tr>
+                </tbody>
+            </table>
+            <div id="status" class="mt-3">Turno de: X</div>
+            <div class="text-center">
+                <button id="resetBtn" class="btn btn-primary my-3">Reiniciar</button>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="text-center mb-4">
+                <button id="trainBtn" class="btn btn-success">Entrenar agente RL</button>
+            </div>
+            <div class="text-center">
+                <img id="rewardPlot" src="{{ url_for('static', filename='rewards.png') }}" alt="Gráfica de recompensas" class="img-fluid rounded shadow">
+            </div>
+        </div>
+    </div>
+{% endblock %}
