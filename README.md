@@ -17,7 +17,8 @@ flask-rl-app
 │   └── files.py            # Python files for the application
 ├── templates
 │   ├── base.html           # Base template with navigation
-│   ├── index.html          # Homepage of the application
+│   ├── Descripcion.html    # Homepage of the application and descriptions
+│   ├── tic_tac_toe.html    # Model page
 └── README.md               # Project documentation
 ```
 
